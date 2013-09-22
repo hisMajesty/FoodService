@@ -1,0 +1,17 @@
+body{ padding: 10px;}
+
+#header{
+  padding-bottom: 5px;
+  border-bottom: solid darkred 1px;
+  margin-bottom: 5px;
+  height: 40px;
+  overflow: hidden;
+}
+#header *{
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: bottom;
+}
+#user-info {float:right; font-size: 14pt;}
+#logo h1{color: darkred; margin: 0;}
