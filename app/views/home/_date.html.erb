@@ -1,0 +1,7 @@
+<% date = date_info[:date] %>
+<div class="date-container">
+  <div class="date <% if date.saturday? || date.sunday? %> <%='weekend'%> <%end %> ">
+    <b class="mday"><%= date.mday %></b>
+    <%= date_info[:ordered] %>
+  </div>
+</div>

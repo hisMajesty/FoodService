@@ -12,5 +12,37 @@ class HomeController < ApplicationController
 
   end
 
+  def calendar
+    now = Time.now
+    year = now.year
+    month = now.month
+    if params[:year]
+      year = params[:year]
+    end
+    if params[:month]
+      month = params[:month]
+    end
+    set_month_info(month, year)
+    render 'month'
+  end
+
+  private
+
+  def set_month_info(month, year)
+    month_start = Time.new year, month, 1
+    month_end = Time.new year, month, Time.days_in_month(month)
+    date_range = month_start.to_date..month_end
+
+    date_infos = date_range.map{|d| {
+                                      date: d,
+                                      ordered: false
+                                    }}
+
+    @month_info = {
+        :month => month,
+        :year => year,
+        :dates => date_infos
+    }
+  end
 
 end

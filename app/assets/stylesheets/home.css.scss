@@ -1,0 +1,38 @@
+body{
+  min-width: 400px;
+}
+
+.date-container{
+  width: 14.28%;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+
+.date-container:after{
+  content: '';
+  display: block;
+  margin-top: 100%;
+}
+
+.date{
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  border: solid darkred 1px;
+}
+
+.date.weekend{
+  opacity: 0.3;
+}
+
+.mday{
+  margin: 5px;
+  font-size: 14pt;
+}
+
+.invisible-date-cotainer {
+  visibility: hidden;
+}

@@ -56,7 +56,7 @@ FS::Application.routes.draw do
 
   get 'log_out' => 'sessions#destroy', :as => 'log_out'
   get 'log_in' => 'sessions#log_in', :as => 'log_in'
-  get 'home' => 'home#index', :as => 'home'
+  get 'home' => 'home#calendar', :as => 'home'
 
   root :to => 'sessions#log_in'
 
