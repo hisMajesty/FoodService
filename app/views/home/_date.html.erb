@@ -1,6 +1,17 @@
-<% date = date_info[:date] %>
+<%
+   date = date_info[:date]
+   content_classes = ' date '
+   if date.saturday? || date.sunday?
+     content_classes += ' weekend '
+   end
+   if date < @month_info[:today]
+     content_classes += ' past '
+   else
+     content_classes += ' future '
+   end
+%>
 <div class="date-container">
-  <div class="date <% if date.saturday? || date.sunday? %> <%='weekend'%> <%end %> ">
+  <div class="<%=content_classes%>" date="<%= date.to_s %>">
     <b class="mday"><%= date.mday %></b>
     <%= date_info[:ordered] %>
   </div>

@@ -24,8 +24,12 @@ body{
   border: solid darkred 1px;
 }
 
-.date.weekend{
+.weekend, .past{
   opacity: 0.3;
+}
+
+.future:not(.weekend):hover{
+  background-color: honeydew;
 }
 
 .mday{
