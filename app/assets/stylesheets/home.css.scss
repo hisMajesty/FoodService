@@ -28,8 +28,11 @@ body{
   opacity: 0.3;
 }
 
-.future:not(.weekend):hover{
+.future:not(.weekend):not(.ordered):hover{
   background-color: honeydew;
+}
+.future:not(.weekend).ordered:hover{
+  background-color: #ffd8da;
 }
 
 .mday{
@@ -39,4 +42,11 @@ body{
 
 .invisible-date-cotainer {
   visibility: hidden;
+}
+
+.ordered{
+  background-image: url('fork_knife.png');
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
 }

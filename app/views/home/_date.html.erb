@@ -9,10 +9,12 @@
    else
      content_classes += ' future '
    end
+   if date_info[:ordered]
+     content_classes += ' ordered '
+   end
 %>
 <div class="date-container">
   <div class="<%=content_classes%>" date="<%= date.to_s %>">
     <b class="mday"><%= date.mday %></b>
-    <%= date_info[:ordered] %>
   </div>
 </div>

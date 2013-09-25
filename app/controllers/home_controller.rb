@@ -35,7 +35,7 @@ class HomeController < ApplicationController
 
     date_infos = date_range.map{|d| {
                                       date: d,
-                                      ordered: false
+                                      ordered: d.mday % 2 == 0
                                     }}
 
     @month_info = {
