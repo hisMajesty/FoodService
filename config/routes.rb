@@ -62,7 +62,7 @@ FS::Application.routes.draw do
   root :to => 'sessions#log_in'
 
   resources :sessions
-  resources :home
   resources :months
+  resources :users
 
 end

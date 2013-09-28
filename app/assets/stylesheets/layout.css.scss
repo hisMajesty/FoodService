@@ -14,4 +14,22 @@ body{ padding: 10px;}
   vertical-align: bottom;
 }
 #user-info {float:right; font-size: 14pt;}
+#logo-icon{
+  background-image: url('icons-meat.png');
+  width: 40px;
+  height: 40px;
+}
 #logo h1{color: darkred; margin: 0;}
+
+.column-left, .column-right{
+  width:50%;
+}
+.column-left{
+  float: left;
+}
+.column-right{
+  float: right;
+}
+.column-border{
+  margin: 5px;
+}

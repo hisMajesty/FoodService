@@ -1,0 +1,18 @@
+.menu {margin: 0px;}
+.menu li {
+  color: darkred;
+  padding: 0 5px 0 5px;
+}
+.menu li a{
+  font-weight: bold;
+  text-decoration: none;
+  color: darkred;
+  font-size: 14pt;
+}
+.menu li:hover a{
+  color: white;
+}
+
+.menu li:hover {
+  background-color: darkred;
+}

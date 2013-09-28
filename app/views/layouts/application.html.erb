@@ -15,12 +15,13 @@
 <% end %>
 <div id="header">
     <div id="logo">
-        <img src="<%= image_url('icons-meat.png') %>" id="logo-icon" />
+        <a href="<%=home_path%>" id="logo-icon" ></a>
         <h1>Food Service</h1>
     </div>
+    <%= render 'layouts/menu'%>
     <div id="user-info">
         <% if current_user %>
-            <%= link_to current_user.login, log_out_path, :title => 'Log out' %>
+            <%= link_to current_user[:login], log_out_path, :title => 'Log out' %>
         <% end %>
     </div>
 </div>

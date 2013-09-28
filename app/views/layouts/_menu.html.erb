@@ -1,0 +1,7 @@
+<ol class="menu">
+  <% if current_user && current_user[:login] == 'admin' %>
+    <li>
+      <%= link_to 'Users', users_path, :title => 'Manage users' %>
+    </li>
+  <% end %>
+</ol>
