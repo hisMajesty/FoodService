@@ -1,4 +1,7 @@
 <%
+   prev_path = show_month_path({:year => @month_info[:prev_year], :month => @month_info[:prev_month]})
+   next_path = show_month_path({:year => @month_info[:next_year], :month => @month_info[:next_month]})
+
    def render_invisible_dates
      html = ''
      month_start = @month_info[:dates].first[:date]
@@ -10,7 +13,11 @@
      return html
    end
 %>
-
+<div class="nav">
+  <a class="nav-button" href="<%=prev_path%>">&#60;</a>
+  <label><%=@month_info[:dates].first[:date].strftime("%B") + ' ' +  @month_info[:year].to_s%></label>
+  <a class="nav-button" href="<%=next_path%>">&#62;</a>
+</div>
 <div class="month-container">
   <%
      html = render_invisible_dates

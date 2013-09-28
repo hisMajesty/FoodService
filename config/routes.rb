@@ -56,12 +56,13 @@ FS::Application.routes.draw do
 
   get 'log_out' => 'sessions#destroy', :as => 'log_out'
   get 'log_in' => 'sessions#log_in', :as => 'log_in'
-  get 'home' => 'home#calendar', :as => 'home'
+  #get 'home' => 'months#index', :as => 'home'
+  get 'months/:year/:month' => 'months#index', :as => 'show_month'
 
   root :to => 'sessions#log_in'
 
   resources :sessions
   resources :home
-
+  resources :months
 
 end
