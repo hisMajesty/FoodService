@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def log_in
     if current_user
-      redirect_to months_path
+      redirect_to home_path
     end
   end
 
