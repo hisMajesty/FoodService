@@ -27,7 +27,7 @@ class MonthsController < ApplicationController
   def set_month_info(month, year)
     month_start = Time.zone.local year, month, 1
     month_end = Time.zone.local year, month, Time.days_in_month(month)
-    date_range = month_start.to_date..month_end
+    date_range = month_start.to_date..month_end.to_date
 
     date_infos = date_range.map{|d| {
         date: d,
