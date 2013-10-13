@@ -12,6 +12,9 @@ class MonthsController < ApplicationController
     now = Time.now
     year = now.year
     month = now.month
+
+
+    
     if params[:year]
       year = Integer(params[:year])
     end
@@ -19,6 +22,8 @@ class MonthsController < ApplicationController
       month = Integer(params[:month])
     end
     set_month_info(month, year)
+    
+    
     render 'month'
   end
 
@@ -28,11 +33,15 @@ class MonthsController < ApplicationController
     month_start = Time.zone.local year, month, 1
     month_end = Time.zone.local year, month, Time.days_in_month(month)
     date_range = month_start.to_date..month_end.to_date
+    selected_month = Date.new(year, month)
+    this_month_requests = Hash[(current_user().requests.where(:date => selected_month..selected_month >> 1)).map { |r| [r.date, r]}]
 
     date_infos = date_range.map{|d| {
         date: d,
-        ordered: d.mday % 2 == 0
+        request: this_month_requests[d]
     }}
+    selected_month = Date.new(year, month)
+    
 
     prev_month = month -1
     prev_year = year

@@ -1,20 +1,30 @@
 <%
    date = date_info[:date]
+   available_to_order = true
    content_classes = ' date '
    if date.saturday? || date.sunday?
      content_classes += ' weekend '
+     available_to_order = false
    end
    if date < @month_info[:today]
      content_classes += ' past '
+     available_to_order = false
    else
      content_classes += ' future '
    end
-   if date_info[:ordered]
+   if !date_info[:request].nil?
      content_classes += ' ordered '
+     available_to_order = false
    end
+   request = date_info[:request]   
 %>
 <div class="date-container">
   <div class="<%=content_classes%>" date="<%= date.to_s %>">
-    <b class="mday"><%= date.mday %></b>
+      <b class="mday"><%= date.mday %></b>
+      <% if available_to_order %>
+        <a href="/requests/new?date=<%=date%>"> Request Order </a>
+      <% end %>
+      
   </div>
+  
 </div>

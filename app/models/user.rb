@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   #attr_accessible :login, :password, :password_confirmation
+  has_many :requests, dependent: :destroy
+
   require 'bcrypt'
 
   attr_accessor :password

@@ -64,5 +64,6 @@ FS::Application.routes.draw do
   resources :sessions
   resources :months
   resources :users
+  resources :requests
 
 end
