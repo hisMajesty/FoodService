@@ -21,9 +21,17 @@
 <div class="date-container">
   <div class="<%=content_classes%>" date="<%= date.to_s %>">
       <b class="mday"><%= date.mday %></b>
-      <% if available_to_order %>
-        <a href="/requests/new?date=<%=date%>"> Request Order </a>
-      <% end %>
+      
+        <% if available_to_order %>
+
+          <%= form_tag({controller:"requests", action:"create"}, method: "post", remote: true)  do %>
+          <%= hidden_field_tag(:date, date) %>
+          <%= submit_tag("Request") %>
+
+          <% end %>
+
+        <% end %>
+        
       
   </div>
   
