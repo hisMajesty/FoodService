@@ -28,3 +28,12 @@
   <%= html.html_safe %>
 
 </div>
+
+<script>
+    $(document).ready(function() {
+        month_page = new MonthPage({
+            create_url: '<%=new_request_path%>',
+            delete_url: '<%=requests_path%>'
+        });
+    });
+</script>

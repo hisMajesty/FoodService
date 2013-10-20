@@ -40,8 +40,7 @@ class MonthsController < ApplicationController
         date: d,
         request: this_month_requests[d]
     }}
-    selected_month = Date.new(year, month)
-    
+
 
     prev_month = month -1
     prev_year = year

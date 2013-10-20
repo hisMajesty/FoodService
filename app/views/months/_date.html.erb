@@ -1,38 +1,24 @@
 <%
    date = date_info[:date]
-   available_to_order = true
    content_classes = ' date '
+   data_attributes = " date=#{date.to_s} "
    if date.saturday? || date.sunday?
      content_classes += ' weekend '
-     available_to_order = false
    end
    if date < @month_info[:today]
      content_classes += ' past '
-     available_to_order = false
    else
      content_classes += ' future '
    end
-   if !date_info[:request].nil?
+   request = date_info[:request]
+   if !request.nil?
      content_classes += ' ordered '
-     available_to_order = false
+     data_attributes += " request_id=#{date_info[:request][:id]} "
    end
-   request = date_info[:request]   
 %>
 <div class="date-container">
-  <div class="<%=content_classes%>" date="<%= date.to_s %>">
+  <div class="<%=content_classes%>" <%=data_attributes%>>
       <b class="mday"><%= date.mday %></b>
-      
-        <% if available_to_order %>
-
-          <%= form_tag({controller:"requests", action:"create"}, method: "post", remote: true)  do %>
-          <%= hidden_field_tag(:date, date) %>
-          <%= submit_tag("Request") %>
-
-          <% end %>
-
-        <% end %>
-        
-      
   </div>
   
 </div>
