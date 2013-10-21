@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-FS::Application.config.secret_key_base = '86e340ab598dd6786a41c38e60efb4103a5d8b0bd55713d54dfc2473c0064b04114d4527b673ae0f7e17544d1a1a19f8e835298ea7668f344950b5998299f690'
+FoodService::Application.config.secret_key_base = 'fb4ea85f895cb1103c95f2c9a0c10fb1addbe56af407bc6f4663920e69da2060c4b3caf52cbdeb1ad979b2fbff0be0624bbb02b7a0dcff708c7252e40874eaae'

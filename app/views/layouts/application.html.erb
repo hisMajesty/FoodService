@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Food Service</title>
-  <%= stylesheet_link_tag    :application, media: "all" %>
-  <%= javascript_include_tag :application %>
-
-  <%= csrf_meta_tags %>
-  <link rel="shortcut icon" href="<%= image_url('icons-meat.png') %>">
-</head>
-<body>
-
-<% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
-<div id="header">
-    <div id="logo">
-        <a href="<%=home_path%>" id="logo-icon" ></a>
-        <h1>Food Service</h1>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Foodservice" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Foodservice" %>">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body class="<%= controller_name %> <%= action_name %>">
+    <div class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/navigation' %>
+        </div>
+      </nav>
     </div>
-    <%= render 'layouts/menu'%>
-    <div id="user-info">
-        <% if current_user %>
-            <%= link_to current_user[:login], log_out_path, :title => 'Log out' %>
-        <% end %>
-    </div>
-</div>
-
-<%= yield %>
-
-</body>
+    <div id="main" role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="span12">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+          </div>
+          <footer>
+          </footer>
+        </div>
+      </div> <!--! end of .container -->
+    </div> <!--! end of #main -->
+  </body>
 </html>

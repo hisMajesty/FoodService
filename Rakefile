@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-FS::Application.load_tasks
+FoodService::Application.load_tasks
